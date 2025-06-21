@@ -1,0 +1,19 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: list-tools
+    silent: false
+
+  dev:
+    description: run poroject
+    cmd: go run .
+    silent: true
+
+  list-tools:
+    cmds:
+      - go version
+      - gcc --version
+      - task --version
+    silent: true
