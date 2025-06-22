@@ -2,17 +2,15 @@ version: "3"
 
 vars:
   BINARY_DIR: ./
+  # TODO: check how dynamic variables work https://taskfile.dev/reference/schema/#variable
+  DYNAMIC:
+    sh: echo "dynamic"
 
 tasks:
   default:
     cmds:
       - task: list-tools
     silent: false
-
-  dev:
-    description: run poroject
-    cmd: go run . {{.CLI_ARGS}}
-    silent: true
 
   build:
     description: build project binary
@@ -21,9 +19,16 @@ tasks:
       - cmd: go build {{.BINARY_DIR}}
     silent: true
 
-  run:
-    description: run poroject binary
-    cmd: "{{.BINARY_DIR}}/gost {{.CLI_ARGS}}"
+  install:
+    description: install project as your local binary
+    silent: true
+
+  test:
+    description: run project tests
+    silent: true
+
+  coverage:
+    description: creates project coverage file
     silent: true
 
   list-tools:
