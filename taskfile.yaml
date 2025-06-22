@@ -1,5 +1,8 @@
 version: "3"
 
+vars:
+  BINARY_DIR: ./
+
 tasks:
   default:
     cmds:
@@ -8,7 +11,19 @@ tasks:
 
   dev:
     description: run poroject
-    cmd: go run .
+    cmd: go run . {{.CLI_ARGS}}
+    silent: true
+
+  build:
+    description: build project binary
+    cmds:
+      - cmd: mkdir -p {{.BINARY_DIR}}
+      - cmd: go build {{.BINARY_DIR}}
+    silent: true
+
+  run:
+    description: run poroject binary
+    cmd: "{{.BINARY_DIR}}/gost {{.CLI_ARGS}}"
     silent: true
 
   list-tools:

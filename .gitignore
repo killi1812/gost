@@ -34,3 +34,7 @@ go.work.sum
 
 # Files to be removed
 .old
+
+# build files
+bin/
+gost
