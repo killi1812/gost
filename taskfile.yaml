@@ -21,10 +21,12 @@ tasks:
 
   install:
     description: install project as your local binary
+    # TODO: Implement
     silent: true
 
   test:
     description: run project tests
+    # TODO: Implement
     silent: true
 
   coverage:
